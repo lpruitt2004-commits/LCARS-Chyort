@@ -3,14 +3,16 @@ import Markdown from 'react-markdown';
 import './App.css';
 import ChyortAssistant from './ChyortAssistant';
 import EncyclopediaNav from './EncyclopediaNav';
+import ChatWindow from './ChatWindow';
 
 function App() {
   const [currentSection, setCurrentSection] = useState(null);
   const [markdownContent, setMarkdownContent] = useState('');
+  const [showChat, setShowChat] = useState(false);
 
   // Handler for Chyort help
   const handleAskChyort = () => {
-    alert('Chyort: How can I assist you? You can browse the encyclopedia or ask for help with code or chat.');
+    setShowChat(!showChat);
   };
 
   // Handler for selecting encyclopedia section
@@ -33,6 +35,7 @@ function App() {
       <div className="lcars-side-bar left"></div>
       <div className="lcars-main-content">
         <ChyortAssistant onAsk={handleAskChyort} />
+        {showChat && <ChatWindow onNavigate={handleSelectSection} />}
         <EncyclopediaNav onSelectSection={handleSelectSection} />
         {currentSection && (
           <div className="encyclopedia-section">
