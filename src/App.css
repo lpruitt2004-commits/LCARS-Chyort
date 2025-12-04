@@ -1,0 +1,159 @@
+.encyclopedia-nav {
+  background: #222;
+  border: 2px solid #3366CC;
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  box-shadow: 0 0 10px #3366CC;
+}
+.encyclopedia-nav h3 {
+  color: #3366CC;
+  margin-bottom: 1rem;
+}
+.encyclopedia-tabs {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.encyclopedia-tab {
+  background: #FFCC00;
+  color: #222;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.encyclopedia-tab.active,
+.encyclopedia-tab:hover {
+  background: #3366CC;
+  color: #fff;
+}
+
+.encyclopedia-section {
+  background: #222;
+  border: 2px solid #FF9900;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  color: #fff;
+  text-align: left;
+  box-shadow: 0 0 10px #FF9900;
+}
+
+.encyclopedia-section h1 {
+  color: #FF9900;
+  border-bottom: 2px solid #FF9900;
+  padding-bottom: 0.5rem;
+}
+
+.encyclopedia-section h2 {
+  color: #3366CC;
+  margin-top: 1.5rem;
+}
+
+.encyclopedia-section h3 {
+  color: #FFCC00;
+  margin-top: 1rem;
+}
+
+.encyclopedia-section ul {
+  margin-left: 1.5rem;
+}
+.chyort-assistant {
+  display: flex;
+  align-items: center;
+  background: #222;
+  border: 2px solid #FF9900;
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  margin: 2rem auto;
+  max-width: 500px;
+  box-shadow: 0 0 10px #FF9900;
+}
+.chyort-avatar {
+  font-size: 3rem;
+  margin-right: 1.5rem;
+}
+.chyort-message h3 {
+  color: #FF9900;
+  margin: 0 0 0.5rem 0;
+}
+.chyort-message p {
+  color: #fff;
+  margin: 0 0 1rem 0;
+}
+.chyort-ask-btn {
+  background: #3366CC;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.chyort-ask-btn:hover {
+  background: #FF9900;
+  color: #222;
+}
+
+body {
+  background: #000;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+.lcars-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #222;
+  color: #fff;
+}
+
+.lcars-header {
+  background: #FF9900;
+  color: #222;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  border-radius: 0 0 40px 40px;
+  text-align: left;
+  letter-spacing: 2px;
+}
+
+.lcars-footer {
+  background: #3366CC;
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 40px 40px 0 0;
+  text-align: right;
+  margin-top: auto;
+}
+
+.lcars-side-bar {
+  width: 40px;
+  height: 100px;
+  background: #FFCC00;
+  border-radius: 20px;
+  margin: 1rem 0;
+}
+.lcars-side-bar.left {
+  align-self: flex-start;
+}
+.lcars-side-bar.right {
+  align-self: flex-end;
+  background: #CC3366;
+}
+
+.lcars-main-content {
+  flex: 1;
+  background: #222;
+  padding: 2rem;
+  border-radius: 20px;
+  margin: 1rem 0;
+  box-shadow: 0 0 20px #FF9900;
+}
