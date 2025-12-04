@@ -24,7 +24,8 @@ export default function ChatWindow({ onNavigate, encyclopediaData }) {
       setIsLoading(true);
       try {
         const endpoint = mode === 'code' ? '/api/code' : '/api/chat';
-        const response = await fetch(`http://localhost:3001${endpoint}`, {
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+        const response = await fetch(`${apiUrl}${endpoint}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message: userInput })
