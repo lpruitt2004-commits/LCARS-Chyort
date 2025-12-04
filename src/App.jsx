@@ -9,10 +9,11 @@ function App() {
   const [currentSection, setCurrentSection] = useState(null);
   const [markdownContent, setMarkdownContent] = useState('');
   const [showChat, setShowChat] = useState(false);
+  const [activeTab, setActiveTab] = useState('home'); // 'home', 'encyclopedia', 'chat'
 
   // Handler for Chyort help
   const handleAskChyort = () => {
-    setShowChat(!showChat);
+    setActiveTab('chat');
   };
 
   // Handler for selecting encyclopedia section
@@ -34,17 +35,58 @@ function App() {
       <div className="lcars-header">LCARS Terminal UI</div>
       <div className="lcars-side-bar left"></div>
       <div className="lcars-main-content">
-        <ChyortAssistant onAsk={handleAskChyort} />
-        {showChat && <ChatWindow onNavigate={handleSelectSection} />}
-        <EncyclopediaNav onSelectSection={handleSelectSection} />
-        {currentSection && (
-          <div className="encyclopedia-section">
-            <Markdown>{markdownContent}</Markdown>
-            <button onClick={() => setCurrentSection(null)} className="chyort-ask-btn">
-              Back to Table of Contents
-            </button>
+        
+        {/* Navigation Tabs */}
+        <div className="main-tabs">
+          <button 
+            className={`main-tab ${activeTab === 'home' ? 'active' : ''}`}
+            onClick={() => setActiveTab('home')}
+          >
+            🏠 Home
+          </button>
+          <button 
+            className={`main-tab ${activeTab === 'encyclopedia' ? 'active' : ''}`}
+            onClick={() => setActiveTab('encyclopedia')}
+          >
+            📚 Encyclopedia
+          </button>
+          <button 
+            className={`main-tab ${activeTab === 'chat' ? 'active' : ''}`}
+            onClick={() => setActiveTab('chat')}
+          >
+            💬 Chat with Chyort
+          </button>
+        </div>
+
+        {/* Home Tab */}
+        {activeTab === 'home' && (
+          <div className="tab-content">
+            <ChyortAssistant onAsk={handleAskChyort} />
           </div>
         )}
+
+        {/* Encyclopedia Tab */}
+        {activeTab === 'encyclopedia' && (
+          <div className="tab-content">
+            <EncyclopediaNav onSelectSection={handleSelectSection} />
+            {currentSection && (
+              <div className="encyclopedia-section">
+                <Markdown>{markdownContent}</Markdown>
+                <button onClick={() => setCurrentSection(null)} className="chyort-ask-btn">
+                  Back to Table of Contents
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Chat Tab */}
+        {activeTab === 'chat' && (
+          <div className="tab-content">
+            <ChatWindow onNavigate={handleSelectSection} />
+          </div>
+        )}
+
       </div>
       <div className="lcars-side-bar right"></div>
       <div className="lcars-footer">Star Trek LCARS Demo</div>

@@ -1,6 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const { Ollama } = require('ollama');
+import express from 'express';
+import cors from 'cors';
+import { Ollama } from 'ollama';
 
 const app = express();
 const ollama = new Ollama({ host: 'http://localhost:11434' });

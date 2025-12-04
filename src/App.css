@@ -145,15 +145,19 @@
   border: 2px solid #FFCC00;
   border-radius: 20px;
   padding: 1rem;
-  margin: 1rem auto;
+  margin: 0 auto;
   max-width: 100%;
+  min-height: 500px;
   box-shadow: 0 0 10px #FFCC00;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 768px) {
   .chat-window {
-    max-width: 700px;
+    max-width: 900px;
+    min-height: 600px;
   }
 }
 
@@ -166,20 +170,58 @@
   font-weight: bold;
   margin-bottom: 1rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chat-controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mode-toggle,
+.ai-toggle {
+  background: #333;
+  color: #fff;
+  border: 2px solid #666;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  font-size: clamp(0.8rem, 3vw, 0.9rem);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: bold;
+}
+
+.mode-toggle.active,
+.ai-toggle.active {
+  background: #3366CC;
+  border-color: #3366CC;
+  color: #fff;
+}
+
+.mode-toggle:hover,
+.ai-toggle:hover {
+  background: #FF9900;
+  border-color: #FF9900;
+  color: #222;
 }
 
 .chat-messages {
-  max-height: 250px;
+  flex: 1;
   overflow-y: auto;
   margin-bottom: 1rem;
   padding: 0.5rem;
   scrollbar-width: thin;
   scrollbar-color: #FF9900 #333;
+  min-height: 300px;
 }
 
 @media (min-width: 768px) {
   .chat-messages {
-    max-height: 350px;
+    min-height: 400px;
   }
 }
 
@@ -290,6 +332,12 @@
 
 .chat-send-btn:active {
   transform: scale(0.98);
+}
+
+.chat-send-btn:disabled,
+.chat-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 .chyort-assistant {
   display: flex;
@@ -456,4 +504,53 @@ body {
     margin: 1rem auto;
     max-width: 1200px;
   }
+}
+
+.main-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main-tab {
+  background: #333;
+  color: #fff;
+  border: 2px solid #666;
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: bold;
+  flex: 1;
+  min-width: 120px;
+  max-width: 250px;
+}
+
+.main-tab.active {
+  background: #FF9900;
+  border-color: #FF9900;
+  color: #222;
+  transform: scale(1.02);
+}
+
+.main-tab:hover {
+  background: #3366CC;
+  border-color: #3366CC;
+  color: #fff;
+}
+
+.main-tab:active {
+  transform: scale(0.98);
+}
+
+.tab-content {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
