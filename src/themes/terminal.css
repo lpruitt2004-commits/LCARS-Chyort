@@ -1,0 +1,287 @@
+/* Terminal TUI Theme */
+[data-theme="terminal"] {
+  --primary-color: #00ff00;
+  --primary-rgb: 0, 255, 0;
+  --secondary-color: #ffff00;
+  --accent-color: #00ffff;
+  --bg-color: #000000;
+  --bg-secondary: #0d0d0d;
+  --text-color: #00ff00;
+  --text-secondary: #00dd00;
+  --border-color: #00ff00;
+  --dropdown-bg: rgba(0, 0, 0, 0.99);
+}
+
+[data-theme="terminal"] body {
+  background: #000000;
+  color: var(--text-color);
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+}
+
+/* Terminal effect */
+[data-theme="terminal"]::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 999;
+}
+
+[data-theme="terminal"] .main-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Title - Terminal prompt style */
+[data-theme="terminal"] h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+[data-theme="terminal"] h1::before {
+  content: '$ ';
+  color: var(--accent-color);
+}
+
+[data-theme="terminal"] h2 {
+  color: var(--secondary-color);
+  font-size: 1.3rem;
+}
+
+[data-theme="terminal"] h2::before {
+  content: '> ';
+  color: var(--accent-color);
+}
+
+/* Card styling - Terminal window */
+[data-theme="terminal"] .card,
+[data-theme="terminal"] .chat-window,
+[data-theme="terminal"] .encyclopedia-section {
+  background: #000000;
+  border: 2px solid var(--border-color);
+  box-shadow: 
+    0 0 20px rgba(0, 255, 0, 0.6),
+    inset 0 0 10px rgba(0, 255, 0, 0.1);
+  padding: 16px;
+  position: relative;
+}
+
+/* Terminal window title bar */
+[data-theme="terminal"] .card::before {
+  content: '┌────────────────────┐';
+  display: block;
+  color: var(--primary-color);
+  font-size: 10px;
+  margin-bottom: 8px;
+}
+
+[data-theme="terminal"] .card::after {
+  content: '└────────────────────┘';
+  display: block;
+  color: var(--primary-color);
+  font-size: 10px;
+  margin-top: 8px;
+}
+
+[data-theme="terminal"] .card:hover {
+  box-shadow: 
+    0 0 30px rgba(0, 255, 0, 0.8),
+    inset 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+/* Button styling - Terminal buttons */
+[data-theme="terminal"] button {
+  background: #000000;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.4);
+}
+
+[data-theme="terminal"] button::before {
+  content: '[ ';
+}
+
+[data-theme="terminal"] button::after {
+  content: ' ]';
+}
+
+[data-theme="terminal"] button:hover {
+  background: var(--primary-color);
+  color: #000000;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.9);
+}
+
+[data-theme="terminal"] button:active {
+  transform: scale(0.98);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+}
+
+/* Input fields - Terminal input */
+[data-theme="terminal"] input,
+[data-theme="terminal"] textarea {
+  background: #000000;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 8px 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.1);
+}
+
+[data-theme="terminal"] input::placeholder {
+  color: rgba(0, 255, 0, 0.4);
+}
+
+[data-theme="terminal"] input::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: var(--primary-color);
+  margin-right: 4px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+[data-theme="terminal"] input:focus,
+[data-theme="terminal"] textarea:focus {
+  outline: none;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 
+    inset 0 0 10px rgba(255, 255, 0, 0.2),
+    0 0 10px rgba(255, 255, 0, 0.4);
+}
+
+/* Chat messages - Terminal style */
+[data-theme="terminal"] .chat-message {
+  padding: 10px;
+  margin: 8px 0;
+  background: #000000;
+  border-left: 3px solid var(--primary-color);
+  color: var(--text-color);
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.1);
+}
+
+[data-theme="terminal"] .chat-message::before {
+  content: '> ';
+  color: var(--accent-color);
+}
+
+[data-theme="terminal"] .chat-message.user {
+  background: #000000;
+  border-left: 3px solid var(--secondary-color);
+}
+
+[data-theme="terminal"] .chat-message.user::before {
+  content: '$ ';
+  color: var(--secondary-color);
+}
+
+/* Tabs - Terminal tabs */
+[data-theme="terminal"] .main-tab {
+  border-bottom: 2px solid transparent;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin: 0 8px;
+  padding: 8px 0;
+  font-family: 'Courier New', monospace;
+}
+
+[data-theme="terminal"] .main-tab::before {
+  content: '[ ';
+  color: var(--accent-color);
+}
+
+[data-theme="terminal"] .main-tab::after {
+  content: ' ]';
+  color: var(--accent-color);
+}
+
+[data-theme="terminal"] .main-tab.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+}
+
+/* Scrollbar - Terminal */
+[data-theme="terminal"] ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+[data-theme="terminal"] ::-webkit-scrollbar-track {
+  background: #000000;
+  border: 1px solid var(--primary-color);
+}
+
+[data-theme="terminal"] ::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border: 1px solid var(--accent-color);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+}
+
+[data-theme="terminal"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+  box-shadow: 0 0 15px rgba(255, 255, 0, 0.6);
+}
+
+/* Code blocks */
+[data-theme="terminal"] code {
+  background: #0d0d0d;
+  border: 1px solid var(--primary-color);
+  color: var(--secondary-color);
+  padding: 2px 4px;
+}
+
+/* Terminal list */
+[data-theme="terminal"] ul {
+  list-style: none;
+}
+
+[data-theme="terminal"] li {
+  margin: 4px 0;
+}
+
+[data-theme="terminal"] li::before {
+  content: '→ ';
+  color: var(--accent-color);
+  margin-right: 6px;
+}

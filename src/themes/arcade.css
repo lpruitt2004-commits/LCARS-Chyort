@@ -1,0 +1,230 @@
+/* Retro Arcade Theme */
+[data-theme="arcade"] {
+  --primary-color: #ff006e;
+  --primary-rgb: 255, 0, 110;
+  --secondary-color: #ffbe0b;
+  --accent-color: #08f7fe;
+  --bg-color: #1a001a;
+  --bg-secondary: #330033;
+  --text-color: #00ff00;
+  --text-secondary: #00dd00;
+  --border-color: #00ff00;
+  --dropdown-bg: rgba(51, 0, 51, 0.95);
+}
+
+[data-theme="arcade"] body {
+  background: linear-gradient(45deg, #1a001a 0%, #330033 25%, #1a001a 50%, #330033 75%, #1a001a 100%);
+  background-size: 40px 40px;
+  color: var(--text-color);
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+}
+
+/* Pixel grid pattern */
+[data-theme="arcade"] body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(0deg, transparent 24%, rgba(255, 0, 110, 0.05) 25%, rgba(255, 0, 110, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 0, 110, 0.05) 75%, rgba(255, 0, 110, 0.05) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0, 255, 0, 0.05) 25%, rgba(0, 255, 0, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 0, 0.05) 75%, rgba(0, 255, 0, 0.05) 76%, transparent 77%, transparent);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme="arcade"] .main-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Scanline effect */
+[data-theme="arcade"]::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Title - Big arcade title */
+[data-theme="arcade"] h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  text-shadow: 
+    3px 3px 0px var(--secondary-color),
+    6px 6px 0px var(--accent-color),
+    0 0 20px rgba(255, 0, 110, 0.8);
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+[data-theme="arcade"] h2 {
+  color: var(--secondary-color);
+  text-shadow: 2px 2px 0px var(--primary-color);
+  font-size: 1.5rem;
+}
+
+/* Arcade cabinet style cards */
+[data-theme="arcade"] .card,
+[data-theme="arcade"] .chat-window,
+[data-theme="arcade"] .encyclopedia-section {
+  background: linear-gradient(135deg, #330033 0%, #1a001a 50%, #330033 100%);
+  border: 3px solid var(--border-color);
+  box-shadow: 
+    0 0 20px rgba(0, 255, 0, 0.8),
+    inset 0 0 20px rgba(0, 255, 0, 0.2),
+    8px 8px 0px rgba(255, 0, 110, 0.4);
+  position: relative;
+  padding: 16px;
+}
+
+[data-theme="arcade"] .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 3px,
+    rgba(255, 0, 110, 0.1) 3px,
+    rgba(255, 0, 110, 0.1) 6px
+  );
+  pointer-events: none;
+  border-radius: 4px;
+}
+
+[data-theme="arcade"] .card:hover {
+  box-shadow: 
+    0 0 30px rgba(0, 255, 0, 1),
+    inset 0 0 30px rgba(0, 255, 0, 0.3),
+    12px 12px 0px rgba(255, 0, 110, 0.6);
+  transform: translate(-2px, -2px);
+}
+
+/* Button styling - arcade buttons */
+[data-theme="arcade"] button {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border: 3px solid var(--text-color);
+  color: #000;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-family: 'Press Start 2P', monospace;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+[data-theme="arcade"] button:hover {
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="arcade"] button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Input fields */
+[data-theme="arcade"] input,
+[data-theme="arcade"] textarea {
+  background: #000;
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
+  padding: 8px 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+}
+
+[data-theme="arcade"] input::placeholder {
+  color: rgba(0, 255, 0, 0.5);
+}
+
+[data-theme="arcade"] input:focus,
+[data-theme="arcade"] textarea:focus {
+  outline: none;
+  border: 2px solid var(--secondary-color);
+  box-shadow: 0 0 20px rgba(255, 190, 11, 0.8);
+}
+
+/* Chat messages */
+[data-theme="arcade"] .chat-message {
+  padding: 10px 12px;
+  margin: 8px 0;
+  background: #000;
+  border: 2px solid var(--primary-color);
+  color: var(--text-color);
+  box-shadow: inset 0 0 10px rgba(255, 0, 110, 0.3);
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+}
+
+[data-theme="arcade"] .chat-message.user {
+  background: #000;
+  border: 2px solid var(--accent-color);
+  box-shadow: inset 0 0 10px rgba(8, 247, 254, 0.3);
+}
+
+/* Tabs - arcade button style */
+[data-theme="arcade"] .main-tab {
+  border: 2px solid var(--text-color);
+  background: linear-gradient(135deg, #330033 0%, #1a001a 100%);
+  color: var(--text-color);
+  padding: 8px 16px;
+  margin: 0 4px;
+  transition: all 0.1s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 11px;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="arcade"] .main-tab.active {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #000;
+  box-shadow: 
+    3px 3px 0px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(255, 0, 110, 0.8);
+}
+
+/* Scrollbar */
+[data-theme="arcade"] ::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+[data-theme="arcade"] ::-webkit-scrollbar-track {
+  background: linear-gradient(90deg, #1a001a, #330033);
+  border: 1px solid var(--text-color);
+}
+
+[data-theme="arcade"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+  border: 2px solid var(--text-color);
+  box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+[data-theme="arcade"] ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--secondary-color), var(--accent-color));
+}

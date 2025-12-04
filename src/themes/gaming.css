@@ -1,0 +1,224 @@
+/* Gaming Dashboard Theme */
+[data-theme="gaming"] {
+  --primary-color: #ff1744;
+  --primary-rgb: 255, 23, 68;
+  --secondary-color: #ffd600;
+  --accent-color: #00e5ff;
+  --bg-color: #0d1117;
+  --bg-secondary: #161b22;
+  --text-color: #ffffff;
+  --text-secondary: #e0e0e0;
+  --border-color: #ff1744;
+  --dropdown-bg: rgba(13, 17, 23, 0.98);
+}
+
+[data-theme="gaming"] body {
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+  color: var(--text-color);
+  font-family: 'Arial', 'Segoe UI', sans-serif;
+}
+
+/* Holographic effect */
+[data-theme="gaming"] body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 23, 68, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme="gaming"] .main-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Title styling - Valorant-like */
+[data-theme="gaming"] h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--primary-color);
+  text-shadow: 
+    0 0 20px rgba(255, 23, 68, 0.8),
+    0 0 40px rgba(255, 23, 68, 0.4);
+  margin-bottom: 20px;
+}
+
+[data-theme="gaming"] h2 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+/* Card styling - Gaming HUD */
+[data-theme="gaming"] .card,
+[data-theme="gaming"] .chat-window,
+[data-theme="gaming"] .encyclopedia-section {
+  background: linear-gradient(135deg, rgba(22, 27, 34, 0.9) 0%, rgba(13, 17, 23, 0.9) 100%);
+  border: 2px solid var(--border-color);
+  box-shadow: 
+    0 0 20px rgba(255, 23, 68, 0.6),
+    inset 0 0 20px rgba(255, 23, 68, 0.1),
+    -4px -4px 15px rgba(255, 215, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glowing corner effect */
+[data-theme="gaming"] .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-top: 2px solid var(--secondary-color);
+  border-right: 2px solid var(--secondary-color);
+}
+
+[data-theme="gaming"] .card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-bottom: 2px solid var(--secondary-color);
+  border-left: 2px solid var(--secondary-color);
+}
+
+[data-theme="gaming"] .card:hover {
+  box-shadow: 
+    0 0 30px rgba(255, 23, 68, 0.9),
+    inset 0 0 30px rgba(255, 23, 68, 0.2),
+    -8px -8px 25px rgba(255, 215, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Button styling - Gaming */
+[data-theme="gaming"] button {
+  background: linear-gradient(135deg, rgba(255, 23, 68, 0.2) 0%, rgba(255, 215, 0, 0.1) 100%);
+  border: 2px solid var(--primary-color);
+  color: var(--text-color);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="gaming"] button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+[data-theme="gaming"] button:hover::before {
+  left: 100%;
+}
+
+[data-theme="gaming"] button:hover {
+  background: linear-gradient(135deg, rgba(255, 23, 68, 0.4) 0%, rgba(255, 215, 0, 0.2) 100%);
+  box-shadow: 
+    0 0 15px rgba(255, 23, 68, 0.8),
+    inset 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Input fields */
+[data-theme="gaming"] input,
+[data-theme="gaming"] textarea {
+  background: rgba(13, 17, 23, 0.9);
+  border: 2px solid var(--accent-color);
+  color: var(--text-color);
+  padding: 10px 12px;
+  border-radius: 2px;
+  font-family: 'Courier New', monospace;
+}
+
+[data-theme="gaming"] input::placeholder {
+  color: rgba(224, 224, 224, 0.5);
+}
+
+[data-theme="gaming"] input:focus,
+[data-theme="gaming"] textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+/* Chat messages - Team chat style */
+[data-theme="gaming"] .chat-message {
+  padding: 12px;
+  margin: 10px 0;
+  background: linear-gradient(90deg, rgba(255, 23, 68, 0.1) 0%, transparent 100%);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 2px;
+}
+
+[data-theme="gaming"] .chat-message.user {
+  background: linear-gradient(90deg, rgba(0, 229, 255, 0.1) 0%, transparent 100%);
+  border-left-color: var(--accent-color);
+}
+
+/* Tabs - Valorant menu style */
+[data-theme="gaming"] .main-tab {
+  border-bottom: 3px solid transparent;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+[data-theme="gaming"] .main-tab.active {
+  color: var(--secondary-color);
+  border-bottom-color: var(--secondary-color);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Stat badges */
+[data-theme="gaming"] .stat-badge {
+  background: linear-gradient(135deg, rgba(255, 23, 68, 0.2) 0%, rgba(255, 215, 0, 0.1) 100%);
+  border: 1px solid var(--primary-color);
+  padding: 8px 12px;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 4px;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+/* Scrollbar - Gaming */
+[data-theme="gaming"] ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+[data-theme="gaming"] ::-webkit-scrollbar-track {
+  background: rgba(255, 23, 68, 0.1);
+}
+
+[data-theme="gaming"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+  border-radius: 6px;
+}
+
+[data-theme="gaming"] ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--secondary-color), var(--accent-color));
+}

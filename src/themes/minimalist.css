@@ -1,0 +1,198 @@
+/* Minimalist Bold Theme */
+[data-theme="minimalist"] {
+  --primary-color: #000000;
+  --primary-rgb: 0, 0, 0;
+  --secondary-color: #ffffff;
+  --accent-color: #333333;
+  --bg-color: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-color: #000000;
+  --text-secondary: #444444;
+  --border-color: #000000;
+  --dropdown-bg: rgba(255, 255, 255, 0.98);
+}
+
+[data-theme="minimalist"] body {
+  background: #ffffff;
+  color: var(--text-color);
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+/* Title styling - Massive typography */
+[data-theme="minimalist"] h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+}
+
+[data-theme="minimalist"] h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+  color: var(--primary-color);
+}
+
+[data-theme="minimalist"] h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+}
+
+/* Card styling - Minimal with strong borders */
+[data-theme="minimalist"] .card,
+[data-theme="minimalist"] .chat-window,
+[data-theme="minimalist"] .encyclopedia-section {
+  background: #ffffff;
+  border: 3px solid var(--primary-color);
+  box-shadow: 
+    12px 12px 0px var(--accent-color);
+  transition: all 0.2s ease;
+  padding: 24px;
+}
+
+[data-theme="minimalist"] .card:hover,
+[data-theme="minimalist"] .chat-window:hover,
+[data-theme="minimalist"] .encyclopedia-section:hover {
+  box-shadow: 
+    16px 16px 0px var(--accent-color);
+  transform: translate(-2px, -2px);
+}
+
+/* Button styling */
+[data-theme="minimalist"] button {
+  background: var(--primary-color);
+  border: 3px solid var(--primary-color);
+  color: var(--secondary-color);
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+[data-theme="minimalist"] button:hover {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  box-shadow: 6px 6px 0px var(--primary-color);
+}
+
+[data-theme="minimalist"] button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--primary-color);
+}
+
+/* Input fields */
+[data-theme="minimalist"] input,
+[data-theme="minimalist"] textarea {
+  background: var(--bg-secondary);
+  border: 2px solid var(--primary-color);
+  color: var(--text-color);
+  padding: 12px 14px;
+  font-family: 'Georgia', serif;
+  font-size: 15px;
+}
+
+[data-theme="minimalist"] input::placeholder {
+  color: #999999;
+}
+
+[data-theme="minimalist"] input:focus,
+[data-theme="minimalist"] textarea:focus {
+  outline: none;
+  border: 3px solid var(--primary-color);
+  background: #ffffff;
+  box-shadow: 0 0 0px var(--primary-color);
+}
+
+/* Chat messages */
+[data-theme="minimalist"] .chat-message {
+  padding: 16px;
+  margin: 12px 0;
+  background: var(--bg-secondary);
+  border-left: 4px solid var(--primary-color);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+[data-theme="minimalist"] .chat-message.user {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border-left: 4px solid var(--secondary-color);
+}
+
+/* Tabs - Bold underline */
+[data-theme="minimalist"] .main-tab {
+  border-bottom: 3px solid transparent;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  padding-bottom: 8px;
+  margin: 0 16px;
+}
+
+[data-theme="minimalist"] .main-tab.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+/* Scrollbar - Bold */
+[data-theme="minimalist"] ::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+[data-theme="minimalist"] ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-left: 2px solid var(--primary-color);
+}
+
+[data-theme="minimalist"] ::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border: 1px solid var(--secondary-color);
+}
+
+[data-theme="minimalist"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* Paragraph styling */
+[data-theme="minimalist"] p {
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+  color: var(--text-secondary);
+}
+
+/* Lists */
+[data-theme="minimalist"] li {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+/* Links */
+[data-theme="minimalist"] a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+[data-theme="minimalist"] a:hover {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 0 2px;
+}

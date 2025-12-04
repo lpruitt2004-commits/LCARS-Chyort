@@ -1,0 +1,260 @@
+/* Liquid Organic Theme */
+[data-theme="liquid"] {
+  --primary-color: #ff006e;
+  --primary-rgb: 255, 0, 110;
+  --secondary-color: #8338ec;
+  --accent-color: #3a86ff;
+  --bg-color: #0a0e27;
+  --bg-secondary: #1a1f3a;
+  --text-color: #ffffff;
+  --text-secondary: #c7d2e0;
+  --border-color: transparent;
+  --dropdown-bg: rgba(26, 31, 58, 0.85);
+}
+
+[data-theme="liquid"] body {
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+  color: var(--text-color);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+[data-theme="liquid"] body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 110, 0.1) 0%,
+    rgba(131, 56, 236, 0.1) 25%,
+    rgba(58, 134, 255, 0.1) 50%,
+    rgba(255, 0, 110, 0.1) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme="liquid"] .main-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Title styling */
+[data-theme="liquid"] h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, #ff006e 0%, #8338ec 50%, #3a86ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+[data-theme="liquid"] h2 {
+  color: var(--secondary-color);
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+/* Blob morphing cards */
+[data-theme="liquid"] .card,
+[data-theme="liquid"] .chat-window,
+[data-theme="liquid"] .encyclopedia-section {
+  background: rgba(26, 31, 58, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1.5px solid transparent;
+  border-image: linear-gradient(135deg, rgba(255, 0, 110, 0.3), rgba(131, 56, 236, 0.3), rgba(58, 134, 255, 0.3)) 1;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 
+    0 8px 32px rgba(255, 0, 110, 0.1),
+    inset 0 0 30px rgba(131, 56, 236, 0.05);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Blob overlay */
+[data-theme="liquid"] .card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 0, 110, 0.1) 0%, transparent 70%);
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  animation: blobMove 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes blobMove {
+  0% {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    transform: translate(0, 0);
+  }
+  34% {
+    border-radius: 70% 30% 46% 54% / 30% 30% 70% 70%;
+    transform: translate(30px, -30px);
+  }
+  67% {
+    border-radius: 100% 60% 52% 37% / 57% 73% 37% 43%;
+    transform: translate(-30px, 30px);
+  }
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    transform: translate(0, 0);
+  }
+}
+
+[data-theme="liquid"] .card:hover,
+[data-theme="liquid"] .chat-window:hover,
+[data-theme="liquid"] .encyclopedia-section:hover {
+  background: rgba(26, 31, 58, 0.8);
+  box-shadow: 
+    0 16px 48px rgba(255, 0, 110, 0.2),
+    inset 0 0 40px rgba(131, 56, 236, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Button styling */
+[data-theme="liquid"] button {
+  background: linear-gradient(135deg, rgba(255, 0, 110, 0.2), rgba(131, 56, 236, 0.2));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid transparent;
+  border-image: linear-gradient(135deg, rgba(255, 0, 110, 0.5), rgba(131, 56, 236, 0.5)) 1;
+  color: var(--text-color);
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+[data-theme="liquid"] button:hover {
+  background: linear-gradient(135deg, rgba(255, 0, 110, 0.4), rgba(131, 56, 236, 0.4));
+  box-shadow: 0 8px 24px rgba(255, 0, 110, 0.3);
+  transform: translateY(-2px);
+}
+
+[data-theme="liquid"] button:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+/* Input fields */
+[data-theme="liquid"] input,
+[data-theme="liquid"] textarea {
+  background: rgba(10, 14, 39, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid transparent;
+  border-image: linear-gradient(135deg, rgba(255, 0, 110, 0.3), rgba(131, 56, 236, 0.3)) 1;
+  color: var(--text-color);
+  padding: 12px 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+[data-theme="liquid"] input::placeholder {
+  color: rgba(199, 210, 224, 0.3);
+}
+
+[data-theme="liquid"] input:focus,
+[data-theme="liquid"] textarea:focus {
+  outline: none;
+  background: rgba(10, 14, 39, 0.8);
+  border-image: linear-gradient(135deg, #ff006e, #8338ec) 1;
+  box-shadow: 0 0 20px rgba(255, 0, 110, 0.2);
+}
+
+/* Chat messages */
+[data-theme="liquid"] .chat-message {
+  padding: 14px 18px;
+  margin: 12px 0;
+  background: rgba(255, 0, 110, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid transparent;
+  border-image: linear-gradient(135deg, rgba(255, 0, 110, 0.2), rgba(131, 56, 236, 0.2)) 1;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+}
+
+[data-theme="liquid"] .chat-message:hover {
+  background: rgba(255, 0, 110, 0.12);
+  transform: translateX(4px);
+}
+
+[data-theme="liquid"] .chat-message.user {
+  background: rgba(131, 56, 236, 0.08);
+  border-image: linear-gradient(135deg, rgba(131, 56, 236, 0.2), rgba(58, 134, 255, 0.2)) 1;
+}
+
+/* Tabs */
+[data-theme="liquid"] .main-tab {
+  border-bottom: 2px solid transparent;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  font-weight: 600;
+  padding-bottom: 8px;
+  margin: 0 12px;
+}
+
+[data-theme="liquid"] .main-tab.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+  text-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+}
+
+/* Scrollbar */
+[data-theme="liquid"] ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+[data-theme="liquid"] ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-theme="liquid"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(255, 0, 110, 0.4), rgba(131, 56, 236, 0.4));
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme="liquid"] ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(255, 0, 110, 0.6), rgba(131, 56, 236, 0.6));
+}

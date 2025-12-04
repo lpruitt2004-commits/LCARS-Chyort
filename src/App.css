@@ -451,6 +451,9 @@ body {
   text-align: left;
   letter-spacing: 2px;
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .lcars-footer {

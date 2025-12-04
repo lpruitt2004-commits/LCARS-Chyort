@@ -4,8 +4,17 @@ import './App.css';
 import ChyortAssistant from './ChyortAssistant';
 import EncyclopediaNav from './EncyclopediaNav';
 import ChatWindow from './ChatWindow';
+import { ThemeProvider } from './hooks/useTheme.jsx';
+import { ThemeToggle } from './components/ThemeToggle';
+import './themes/cyberpunk.css';
+import './themes/gaming.css';
+import './themes/glassmorphism.css';
+import './themes/arcade.css';
+import './themes/minimalist.css';
+import './themes/liquid.css';
+import './themes/terminal.css';
 
-function App() {
+function AppContent() {
   const [currentSection, setCurrentSection] = useState(null);
   const [markdownContent, setMarkdownContent] = useState('');
   const [showChat, setShowChat] = useState(false);
@@ -32,7 +41,10 @@ function App() {
 
   return (
     <div className="lcars-container">
-      <div className="lcars-header">LCARS Terminal UI</div>
+      <div className="lcars-header">
+        <span>LCARS Terminal UI</span>
+        <ThemeToggle />
+      </div>
       <div className="lcars-side-bar left"></div>
       <div className="lcars-main-content">
         
@@ -91,6 +103,14 @@ function App() {
       <div className="lcars-side-bar right"></div>
       <div className="lcars-footer">Star Trek LCARS Demo</div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 

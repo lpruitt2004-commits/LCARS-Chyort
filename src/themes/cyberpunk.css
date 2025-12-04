@@ -1,0 +1,231 @@
+/* Cyberpunk Neon Theme */
+[data-theme="cyberpunk"] {
+  --primary-color: #00ff00;
+  --primary-rgb: 0, 255, 0;
+  --secondary-color: #ff00ff;
+  --accent-color: #00ffff;
+  --bg-color: #0a0e27;
+  --bg-secondary: #1a1f3a;
+  --text-color: #00ff00;
+  --text-secondary: #00dd00;
+  --border-color: #00ff00;
+  --dropdown-bg: rgba(10, 14, 39, 0.95);
+}
+
+[data-theme="cyberpunk"] body {
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+  color: var(--text-color);
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+}
+
+/* Scanline effect */
+[data-theme="cyberpunk"] body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.03),
+    rgba(0, 255, 0, 0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 999;
+  animation: scanlines 8s linear infinite;
+}
+
+@keyframes scanlines {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+[data-theme="cyberpunk"] .main-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Glitch effect */
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff;
+  }
+  25% {
+    text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff;
+  }
+  50% {
+    text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff;
+  }
+  75% {
+    text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff;
+  }
+  100% {
+    text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff;
+  }
+}
+
+/* Title styling */
+[data-theme="cyberpunk"] h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--primary-color);
+  text-shadow: 
+    0 0 20px rgba(0, 255, 0, 0.8),
+    0 0 40px rgba(0, 255, 0, 0.4);
+  margin-bottom: 20px;
+  animation: glitch 0.3s ease-in-out;
+}
+
+[data-theme="cyberpunk"] h2 {
+  color: var(--secondary-color);
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.6);
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Card styling - Neon glow */
+[data-theme="cyberpunk"] .card,
+[data-theme="cyberpunk"] .chat-window,
+[data-theme="cyberpunk"] .encyclopedia-section {
+  background: rgba(10, 14, 39, 0.8);
+  border: 2px solid var(--primary-color);
+  box-shadow: 
+    0 0 20px rgba(0, 255, 0, 0.8),
+    inset 0 0 20px rgba(0, 255, 0, 0.1),
+    -4px -4px 15px rgba(255, 0, 255, 0.3);
+  position: relative;
+}
+
+[data-theme="cyberpunk"] .card:hover {
+  box-shadow: 
+    0 0 30px rgba(0, 255, 0, 1),
+    inset 0 0 30px rgba(0, 255, 0, 0.2),
+    -8px -8px 25px rgba(255, 0, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Button styling */
+[data-theme="cyberpunk"] button {
+  background: linear-gradient(135deg, rgba(0, 255, 0, 0.1), rgba(255, 0, 255, 0.1));
+  border: 2px solid var(--primary-color);
+  color: var(--text-color);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+}
+
+[data-theme="cyberpunk"] button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.5), transparent);
+  transition: left 0.5s ease;
+}
+
+[data-theme="cyberpunk"] button:hover::before {
+  left: 100%;
+}
+
+[data-theme="cyberpunk"] button:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 0, 0.3), rgba(255, 0, 255, 0.2));
+  box-shadow: 
+    0 0 15px rgba(0, 255, 0, 0.8),
+    inset 0 0 15px rgba(255, 0, 255, 0.3);
+}
+
+/* Input fields */
+[data-theme="cyberpunk"] input,
+[data-theme="cyberpunk"] textarea {
+  background: rgba(10, 14, 39, 0.9);
+  border: 2px solid var(--accent-color);
+  color: var(--text-color);
+  padding: 10px 12px;
+  border-radius: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+}
+
+[data-theme="cyberpunk"] input::placeholder {
+  color: rgba(0, 255, 0, 0.4);
+}
+
+[data-theme="cyberpunk"] input:focus,
+[data-theme="cyberpunk"] textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+}
+
+/* Chat messages */
+[data-theme="cyberpunk"] .chat-message {
+  padding: 12px;
+  margin: 10px 0;
+  background: linear-gradient(90deg, rgba(0, 255, 0, 0.1) 0%, transparent 100%);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 0;
+  font-size: 13px;
+  font-family: 'Courier New', monospace;
+}
+
+[data-theme="cyberpunk"] .chat-message.user {
+  background: linear-gradient(90deg, rgba(255, 0, 255, 0.1) 0%, transparent 100%);
+  border-left-color: var(--secondary-color);
+}
+
+/* Tabs */
+[data-theme="cyberpunk"] .main-tab {
+  border-bottom: 3px solid transparent;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Courier New', monospace;
+}
+
+[data-theme="cyberpunk"] .main-tab.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+}
+
+/* Scrollbar */
+[data-theme="cyberpunk"] ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+[data-theme="cyberpunk"] ::-webkit-scrollbar-track {
+  background: rgba(0, 255, 0, 0.1);
+}
+
+[data-theme="cyberpunk"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+}
+
+[data-theme="cyberpunk"] ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--secondary-color), var(--accent-color));
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
+}
